@@ -9,15 +9,15 @@ try:
 
     cursor = connection.cursor()
 
-    insert_build = """ INSERT INTO employee (NAME, ROLE, TURN) VALUES (%s,%s,%s) """
+    insert_build = """ INSERT INTO tasks (NAME, DATE, DESCRIPTION) VALUES (%s, %s ,%s) """
 
-    employee_build2 = ("Melissa", "Dev. Angular", "noite")
+    tasks_build = ("Trabalhar com o pai", "Sábado", "Ajudar nas tarefas para que tudo se resolva")
 
-    cursor.execute(insert_build, employee_build2)
+    cursor.execute(insert_build, tasks_build)
 
     connection.commit()
     count = cursor.rowcount
-    print(count, "Record inserted successfully into employee table" "\n")
+    print(count, "Record inserted successfully into tasks table" "\n")
 
 except (Exception, psycopg2.Error) as error:
     print(error)

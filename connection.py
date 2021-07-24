@@ -1,5 +1,5 @@
 import psycopg2
-from psycopg2 import errors
+from psycopg2 import Error
 
 
 try:
@@ -21,16 +21,16 @@ try:
     print("I'm connected to Postgres", record)
 
     #SQL query table
-    table_build = '''CREATE TABLE employee
-            (ID        SERIAL       PRIMARY KEY,
-             NAME      TEXT         NOT NULL,
-             ROLE      TEXT         NOT NULL,
-             TURN      TEXT         NOT  NULL);'''
+    table_build = '''CREATE TABLE tasks
+            (ID              SERIAL       PRIMARY KEY,
+             NAME            TEXT         NOT NULL,
+             DATE            TEXT         NOT NULL,
+             DESCRIPTION     TEXT         NOT  NULL);'''
     cursor.execute(table_build)
     connection.commit()
     print("Table conclude")
 
-except (Exception, errors) as error:
+except (Exception, Error) as error:
     print("Error in connect from Postgres")
 
 finally:
