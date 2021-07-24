@@ -1,6 +1,6 @@
 import psycopg2
 
-def dataDel(employeeId):
+def dataDel(tasksId):
     try:
         connection = psycopg2.connect(user     = "postgres",
                                       password = "deesantos123",
@@ -9,8 +9,8 @@ def dataDel(employeeId):
                                       database = "postgresdb")
         cursor = connection.cursor()
 
-        delete_build = "DELETE FROM employee where id = %s"
-        cursor.execute(delete_build,  (employeeId, ))
+        delete_build = "DELETE FROM tasks where id = %s"
+        cursor.execute(delete_build,  (tasksId, ))
         connection.commit()
         count = cursor.rowcount
         print(count, "Deleted record" "\n")
@@ -28,5 +28,5 @@ def dataDel(employeeId):
 
     print("PostgreSQL connection is closed")
 
-delEmployee = 5
-dataDel(delEmployee)
+deltasks = 5
+dataDel(deltasks)

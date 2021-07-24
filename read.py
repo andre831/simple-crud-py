@@ -8,7 +8,7 @@ connection = psycopg2.connect(user     = "postgres",
 
 cursor = connection.cursor()
 
-pg2 = "SELECT * FROM employee"
+pg2 = "SELECT * FROM tasks"
 
 cursor.execute(pg2)
 results = cursor.fetchall()
